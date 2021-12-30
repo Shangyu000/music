@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/welcome_activity_top_guideline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".03"/>
+
+    <!--上部-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/welcome_activity_top_layout"
+        app:layout_constraintTop_toBottomOf="@id/welcome_activity_top_guideline">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/welcome_activity_top_line"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".69"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/welcome_activity_top_line2"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".63"/>
+
+        <com.example.testdemo.customview.CircleImageView
+            android:id="@+id/wel_top_iv_icon"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/item_icon_test2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="18dp" />
+
+        <com.example.testdemo.customview.TextCircleView
+            android:id="@+id/welcome_activity_top_tv_timer"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="18dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:text="@string/label_WelcomeActivity_line1"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/welcome_activity_top_line2"
+            app:layout_constraintBottom_toBottomOf="@id/welcome_activity_top_line2"
+            app:layout_constraintStart_toEndOf="@id/welcome_activity_top_tv_sky"
+            android:layout_marginStart="20dp"
+            android:paddingBottom="25dp"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcome_activity_top_tv_sky"
+            android:alpha="0.8"
+            android:text="@string/label_WelcomeActivity_line2"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@id/welcome_activity_top_line"
+            app:layout_constraintTop_toBottomOf="@id/welcome_activity_top_line2"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--下面-->
+    <RelativeLayout
+        android:id="@+id/welcome_activity_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_activity_top_layout">
+
+        <com.example.testdemo.customview.CircleImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_note_left"
+            android:layout_toStartOf="@id/wel_bottom_tv_name"
+            android:layout_alignTop="@id/wel_bottom_tv_name"
+            android:scaleType="fitXY"
+            android:layout_toLeftOf="@id/wel_bottom_tv_name" />
+        <TextView
+            android:id="@+id/wel_bottom_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/logo"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_above="@id/wel_bottom_tv_tips"
+            android:layout_marginBottom="8dp"/>
+        <com.example.testdemo.customview.CircleImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/icon_note_right"
+            android:layout_toEndOf="@id/wel_bottom_tv_name"
+            android:layout_alignTop="@id/wel_bottom_tv_name"
+            android:scaleType="fitXY"
+            android:layout_toRightOf="@id/wel_bottom_tv_name" />
+
+        <TextView
+            android:id="@+id/wel_bottom_tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/label_WelcomeActivity_line3"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            android:textStyle="italic"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

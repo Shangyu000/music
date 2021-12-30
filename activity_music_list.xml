@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="@color/colorAccent">
+
+    <!--遮罩层-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.19"
+        android:contentDescription="@string/label_Activity_mask"
+        android:src="@color/colorBlack"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/music_activity_layout_ui_root">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/music_activity_top_line"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".03"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/music_activity_top_layout"
+            app:layout_constraintTop_toBottomOf="@id/music_activity_top_line">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/music_activity_rv_list"
+            app:layout_constraintTop_toBottomOf="@id/music_activity_top_layout"
+            app:layout_constraintBottom_toTopOf="@id/music_activity_bottom_layout"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:id="@+id/music_activity_bottom_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:background="?android:selectableItemBackground"
+            android:paddingLeft="10dp"
+            android:paddingRight="0dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/music_activity_bottom_guideline_left1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".04"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/music_activity_bottom_guideline_right1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".96" />
+
+            <!--ellipsize: 文本超过限制则给滚动显示,字体颜色由Html文字显示-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/music_activity_bottom_tv_song"
+                android:text="@string/label_default_title"
+                android:textSize="13sp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="56dp"
+                app:layout_constraintVertical_bias=".3"
+                app:layout_constraintWidth_percent=".54"
+                android:layout_marginLeft="56dp" />
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:id="@+id/music_activity_bottom_iv_list"
+                android:src="@drawable/iv_list"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias=".3"
+                app:layout_constraintEnd_toEndOf="@id/music_activity_bottom_guideline_right1"
+                android:padding="2dp"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/label_Activity_list"/>
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:id="@+id/music_activity_bottom_iv_play"
+                android:src="@drawable/iv_main_play"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/music_activity_bottom_iv_list"
+                app:layout_constraintStart_toEndOf="@id/music_activity_bottom_tv_song"
+                app:layout_constraintHorizontal_bias=".6"
+                app:layout_constraintVertical_bias=".3"
+                android:padding="2dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:contentDescription="@string/label_Activity_toggle"
+                tools:targetApi="lollipop" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.example.testdemo.customview.CircleImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/music_activity_bottom_iv_bg"
+            android:src="@drawable/blur_black"
+            app:layout_constraintTop_toTopOf="@id/music_activity_bottom_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".04"
+            app:layout_constraintVertical_bias=".049"/>
+
+        <com.example.testdemo.customview.CircleImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/music_activity_bottom_iv_album"
+            android:src="@drawable/cover_default"
+            app:layout_constraintTop_toTopOf="@id/music_activity_bottom_iv_bg"
+            app:layout_constraintBottom_toBottomOf="@id/music_activity_bottom_iv_bg"
+            app:layout_constraintStart_toStartOf="@id/music_activity_bottom_iv_bg"
+            app:layout_constraintEnd_toEndOf="@id/music_activity_bottom_iv_bg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
