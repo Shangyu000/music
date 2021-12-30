@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="132dp"
+    android:padding="2dp">
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:id="@+id/notification_line"
+        android:background="@color/colorGrey"
+        android:layout_marginBottom="5dp"
+        android:alpha="0.5"
+        android:layout_above="@id/notification_bottom_layout"
+        android:layout_alignEnd="@id/notification_iv_close"
+        android:contentDescription="@string/label_notification_line"
+        android:layout_alignRight="@id/notification_iv_close" />
+    <ImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:id="@+id/notification_iv_album"
+        android:src="@drawable/cover_default"
+        android:contentDescription="@string/label_notification_cover" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/notification_bottom_layout"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:gravity="center"
+        android:layout_alignBottom="@id/notification_iv_album"
+        android:layout_alignEnd="@id/notification_iv_close"
+        android:layout_toEndOf="@id/notification_iv_album"
+        android:layout_alignRight="@id/notification_iv_close"
+        android:layout_toRightOf="@id/notification_iv_album">
+
+        <ImageView
+            android:id="@+id/notification_iv_love"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/iv_love_grey"
+            android:contentDescription="@string/label_notification_love"
+            android:background="?android:selectableItemBackground"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/notification_iv_left"
+            android:src="@drawable/iv_left_grey"
+            android:contentDescription="@string/label_notification_previous"
+            android:background="?android:selectableItemBackground"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"/>
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/notification_iv_play"
+            android:src="@drawable/iv_play_grey"
+            android:contentDescription="@string/label_notification_toggle"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            tools:targetApi="lollipop" />
+
+        <ImageView
+            android:id="@+id/notification_iv_right"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/iv_right_grey"
+            android:contentDescription="@string/label_notification_next"
+            android:background="?android:selectableItemBackground"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/notification_iv_lrc"
+            android:src="@drawable/cover_default"
+            android:contentDescription="@string/label_notification_lyric"
+            android:background="?android:selectableItemBackground"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"/>
+
+    </LinearLayout>
+
+    <!--ellipsize: 文本超过限制则...显示-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/notification_top_song"
+        android:text="@string/label_default_title"
+        android:textColor="@color/colorNightBlack"
+        android:layout_toEndOf="@id/notification_iv_album"
+        android:layout_toStartOf="@id/notification_iv_close"
+        android:textSize="15sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/notification_iv_album"
+        android:layout_toLeftOf="@id/notification_iv_close"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:id="@+id/notification_top_singer"
+        android:text="@string/label_default_artist"
+        android:textColor="@color/colorRelativeGrey"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:layout_marginEnd="40dp"
+        android:layout_below="@id/notification_iv_close"
+        android:layout_above="@id/notification_line"
+        android:layout_alignStart="@id/notification_top_song"
+        android:layout_marginRight="40dp"
+        android:layout_alignLeft="@id/notification_top_song" />
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/notification_iv_close"
+        android:src="@drawable/iv_close_grey"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="8dp"
+        android:contentDescription="@string/label_notification_close"
+        android:layout_alignParentRight="true" />
+</RelativeLayout>
